@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import './App.css'
 
 function App() {
 
@@ -6,6 +7,7 @@ function App() {
     const [videoURL, setVideoURL] = useState('');
     const [videos, setVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState("");
+    const [currentPage, setCurrentPage] = useState("home");
 
 
     useEffect(() => {
@@ -64,29 +66,64 @@ function App() {
     }
 
     return (
-      <div>
+      <div className="app-container">
+        <header classname="header">
+          <h1>Video Analysis App</h1>
+        </header>
 
-          <input type="file" accept="video/*" onChange={handleVideoUpload}/>
+        <nav className="nav-bar">
+          <button onClick={() => setCurrentPage('home')}>Home</button>
+          <button onClick={() => setCurrentPage('videos')}>Videos</button>
+          <button onClick={() => setCurrentPage('model')}>Model</button>
+        </nav>
 
-          <br />
+          <br/>
+          <br/>
+          <br/>
 
-          <label>Select a Video:</label>
-          <select onChange={handleVideoSelect}>
-              <option value="">-- Select a Video--</option>
-              {videos.map((video, index) => (
-                  <option key={index} value={video}>{video}</option>
-              ))}
-          </select>
+          <div classname="content">
+              {currentPage === "home" && (
+                  <div>
+                      <h2>Welcome to the Video Analysis App</h2>
+                      <p>This application allows you to upload videos and analyze them using the ML model</p>
+                      <p>Navigate to the "Videos" tab to get started</p>
+                      <p>A bunch of more information blah blah blah</p>
+                  </div>
+              )}
 
-          {videoURL && (
-              <video width="640" height="360" controls>
-                  <source src={videoURL} type="video/mp4" />
-                  Error: Your browser does not support this video
-              </video>
-          )}
+              {currentPage === "videos" && (
+                  <div>
+                      <h2>Upload % Select Videos</h2>
+                      <input type="file" accept={"video/*"} onChange={handleVideoUpload} />
+                      <br />
+                      <label>Select a Video:</label>
+                      <select onChange={handleVideoSelect}>
+                          <option value="">-- Select A Video --</option>
+                          {videos.map((video, index) => (
+                              <option key={index} value={video}>{video}</option>
+                          ))}
+                      </select>
+                      {videoURL && (
+                          <video width="640" height="360" controls>
+                              <source src={videoURL} type="video/mp4" />
+                              Error: Your browser does not support the video
+                          </video>
+                      )}
+                      <br />
+                      <button onClick={() => setCurrentPage('model')}>Analyze with Model</button>
+                  </div>
+              )}
 
+              {currentPage === "model" && (
+                  <div>
+                      <h2>ML Model Analysis</h2>
+                      <p>Here you will see results of the ML Model processing your video</p>
+                      <p>More details</p>
+                  </div>
+              )}
+          </div>
       </div>
-  )
+    );
 }
 
 export default App;
