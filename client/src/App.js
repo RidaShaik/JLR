@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import './App.css'
 
+import logo from './logo.png';
+
 function App() {
 
     const [videoFile, setVideoFile] = useState(null);
@@ -68,14 +70,17 @@ function App() {
     return (
       <div className="app-container">
         <header classname="header">
-          <h1>Video Analysis App</h1>
+            <div className="header-content">
+                <img src={logo} alt="logo" className="logo" />
+                <h1>Sports Action Detection</h1>
+                <nav className="nav-bar">
+                    <button onClick={() => setCurrentPage('home')}>Home</button>
+                    <button onClick={() => setCurrentPage('clips')}>Clips</button>
+                    <button onClick={() => setCurrentPage('detection')}>Detection</button>
+                    <button onClick={() => setCurrentPage('upload')}>Upload</button>
+                </nav>
+            </div>
         </header>
-
-        <nav className="nav-bar">
-          <button onClick={() => setCurrentPage('home')}>Home</button>
-          <button onClick={() => setCurrentPage('videos')}>Videos</button>
-          <button onClick={() => setCurrentPage('model')}>Model</button>
-        </nav>
 
           <br/>
           <br/>
@@ -84,14 +89,38 @@ function App() {
           <div classname="content">
               {currentPage === "home" && (
                   <div>
-                      <h2>Welcome to the Video Analysis App</h2>
-                      <p>This application allows you to upload videos and analyze them using the ML model</p>
-                      <p>Navigate to the "Videos" tab to get started</p>
-                      <p>A bunch of more information blah blah blah</p>
+                      <div className="video-container">
+                          <video autoPlay loop muted>
+                              <source src="./homeVid.mp4" type="video/mp4"/>
+                              Vid Not Supported
+                          </video>
+                      </div>
+                      <div className="home-content">
+                          <h2>Welcome to the Video Analysis App</h2>
+                          <p>This application allows you to upload videos and analyze them using the ML model</p>
+                          <p>Navigate to the "Videos" tab to get started</p>
+                          <p>A bunch of more information blah blah blah</p>
+                      </div>
                   </div>
               )}
 
-              {currentPage === "videos" && (
+              {currentPage === "clips" && (
+                  <div>
+                      <h2>ML Model Analysis</h2>
+                      <p>Here you will see results of the ML Model processing your video</p>
+                      <p>More details</p>
+                  </div>
+              )}
+
+              {currentPage === "detection" && (
+                  <div>
+                      <h2>ML Model Analysis</h2>
+                      <p>Here you will see results of the ML Model processing your video</p>
+                      <p>More details</p>
+                  </div>
+              )}
+
+              {currentPage === "upload" && (
                   <div>
                       <h2>Upload % Select Videos</h2>
                       <input type="file" accept={"video/*"} onChange={handleVideoUpload} />
@@ -110,17 +139,10 @@ function App() {
                           </video>
                       )}
                       <br />
-                      <button onClick={() => setCurrentPage('model')}>Analyze with Model</button>
+                      <button onClick={() => setCurrentPage('detection')}>Analyze with Model</button>
                   </div>
               )}
 
-              {currentPage === "model" && (
-                  <div>
-                      <h2>ML Model Analysis</h2>
-                      <p>Here you will see results of the ML Model processing your video</p>
-                      <p>More details</p>
-                  </div>
-              )}
           </div>
       </div>
     );
