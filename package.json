@@ -11,5 +11,11 @@
   "devDependencies": {
     "prettier": "^3.3.1",
     "vite": "^5.1.6"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^4.2.4"
   }
 }

@@ -4,6 +4,11 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.home-logo {
+  background-color: #1a2a4d;
+  padding: 10px;
+}
+
 .header-content {
   display: flex;
   align-items: center;
@@ -24,6 +29,8 @@ body {
   justify-content: flex-end;
   gap: 10px;
   flex-grow: 1;
+  background-color: #1a2a4d;
+  padding: 14px;
 }
 
 .nav-bar button {
@@ -69,7 +76,16 @@ body {
   text-align: center;
   color: white;
   font-size: 1.5rem;
-  padding-top: 30vh;
+  /*padding-top: 10vh;*/
+  background-color: #1a2a4d;
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  padding-bottom: 1vh;
+}
+
+.home-header {
+  padding: 2vh;
+  background-color: #425784;
 }
 
 .content {

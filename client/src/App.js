@@ -1,9 +1,20 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import './App.css'
 
 import logo from './logo.png';
 
 function App() {
+
+    const videoRef = useRef(null);
+    const [currentAnnotation, setCurrentAnnotation] = useState("");
+
+const handleTimeUpdate = () => {
+    if (videoRef.current) {
+        const currentTimeDec = videoRef.current.currentTime.toFixed(1);
+        const currentTimeInt = Math.floor(videoRef.current.currentTime)
+        setCurrentAnnotation(`GT[${currentTimeInt}] start:${currentTimeDec}`);
+      }
+};
 
     const [videoFile, setVideoFile] = useState(null);
     const [videoURL, setVideoURL] = useState('');
@@ -72,7 +83,7 @@ function App() {
         <header classname="header">
             <div className="header-content">
                 <img src={logo} alt="logo" className="logo" />
-                <h1>Sports Action Detection</h1>
+                <h1 className="home-logo">Sports Action Detection</h1>
                 <nav className="nav-bar">
                     <button onClick={() => setCurrentPage('home')}>Home</button>
                     <button onClick={() => setCurrentPage('clips')}>Clips</button>
@@ -96,7 +107,7 @@ function App() {
                           </video>
                       </div>
                       <div className="home-content">
-                          <h2>Welcome to the Video Analysis App</h2>
+                          <h2 className="home-header">Welcome to the Video Analysis App</h2>
                           <p>This application allows you to upload videos and analyze them using the ML model</p>
                           <p>Navigate to the "Videos" tab to get started</p>
                           <p>A bunch of more information blah blah blah</p>
@@ -120,28 +131,50 @@ function App() {
                   </div>
               )}
 
-              {currentPage === "upload" && (
-                  <div>
-                      <h2>Upload % Select Videos</h2>
-                      <input type="file" accept={"video/*"} onChange={handleVideoUpload} />
-                      <br />
-                      <label>Select a Video:</label>
+{currentPage === "upload" && (
+        <div>
+          <h2>Upload & Select Videos</h2>
+          <input type="file" accept="video/*" onChange={handleVideoUpload} />
+          <br />
+          <label>Select a Video:</label>
                       <select onChange={handleVideoSelect}>
                           <option value="">-- Select A Video --</option>
                           {videos.map((video, index) => (
                               <option key={index} value={video}>{video}</option>
                           ))}
                       </select>
-                      {videoURL && (
-                          <video width="640" height="360" controls>
-                              <source src={videoURL} type="video/mp4" />
-                              Error: Your browser does not support the video
-                          </video>
-                      )}
-                      <br />
-                      <button onClick={() => setCurrentPage('detection')}>Analyze with Model</button>
-                  </div>
+          {videoURL && (
+            <div style={{ position: "relative", display: "inline-block" }}>
+              <video 
+                width="640" 
+                height="360" 
+                controls 
+                ref={videoRef} 
+                onTimeUpdate={handleTimeUpdate}
+              >
+                <source src={videoURL} type="video/mp4" />
+                Error: Your browser does not support the video
+              </video>
+
+              {currentAnnotation && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "10px",
+                    right: "10px",
+                    background: "rgba(0,0,0,0.7)",
+                    color: "white",
+                    padding: "5px",
+                    borderRadius: "5px"
+                  }}
+                >
+                  {currentAnnotation}
+                </div>
               )}
+            </div>
+          )}
+        </div>
+      )}
 
           </div>
       </div>
