@@ -170,33 +170,17 @@ function App() {
           )}
 
           {currentPage === 'upload' && (
-            <div>
-              <h2>Upload % Select Videos</h2>
-              <input
-                type="file"
-                accept={'video/*'}
-                onChange={handleVideoUpload}
-              />
-              <br />
-              <label>Select a Video:</label>
-              <select onChange={handleVideoSelect}>
-                <option value="">-- Select A Video --</option>
-                {videos.map((video, index) => (
-                  <option key={index} value={video}>
-                    {video}
-                  </option>
-                ))}
-              </select>
-              {videoURL && (
-                <video width="640" height="360" controls>
-                  <source src={videoURL} type="video/mp4" />
-                  Error: Your browser does not support the video
-                </video>
-              )}
-              <br />
-              <button onClick={() => setCurrentPage('detection')}>
-                Analyze with Model
-              </button>
+            <div className="upload-container">
+                <label htmlFor="upload-input" classname="upload-button">
+                    Upload Video
+                </label>
+                <input
+                    id="upload-input"
+                    type="file"
+                    accept="video/*"
+                    onChange={handleVideoUpload}
+                    style={{ display: "none" }}
+                />
             </div>
           )}
         </div>
