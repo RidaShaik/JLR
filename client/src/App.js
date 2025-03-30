@@ -173,10 +173,10 @@ function App() {
                     controls
                     autoPlay
                   />
-                    <div className="analysis-box">
-                        <h3>TAD Analysis</h3>
-                        <p>model stuff goes here blah blah</p>
-                    </div>
+                  <div className="analysis-box">
+                    <h3>TAD Analysis</h3>
+                    <p>model stuff goes here blah blah</p>
+                  </div>
                 </div>
               ) : (
                 <p>No Video Selected, Please select from Clips tab</p>
@@ -186,33 +186,39 @@ function App() {
 
           {currentPage === 'upload' && (
             <div className="upload-container">
-                <label htmlFor="upload-input" classname="upload-button">
-                    Upload Video
+              <div className="upload-content">
+                <label htmlFor="upload-input" className="upload-button">
+                  Upload Video
                 </label>
                 <input
-                    id="upload-input"
-                    type="file"
-                    accept="video/*"
-                    onChange={handleVideoUpload}
-                    style={{ display: "none" }}
+                  id="upload-input"
+                  type="file"
+                  accept="video/*"
+                  onChange={handleVideoUpload}
+                  style={{ display: 'none' }}
                 />
-                <div className="news-section">
-                    <h2>Latest Sports News</h2>
-                    {newsArticles.length > 0 ? (
-                        <ul className="news-list">
-                            {newsArticles.map((article, index) => (
-                                <li key={index} className="news-item">
-                                    <a href={article.url} target="_blank" rel="noopener noreferrer" className="news-title">
-                                        {article.title}
-                                    </a>
-                                    <p className="news-description">{article.description}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>Loading news...</p>
-                    )}
-                </div>
+
+                  <div className="news-section">
+                      <h2>Latest Sports News</h2>
+                      {newsArticles.length > 0 ? (
+                          <div className="news-grid">
+                              {newsArticles.map((article, index) => (
+                                  <div className="news-card" key={index}>
+                                      {article.urlToImage && (
+                                          <img src={article.urlToImage} alt="News" className="news-image" />
+                                      )}
+                                      <a href={article.url} target="_blank" rel="noopener noreferrer" className="news-card-title">
+                                          {article.title}
+                                      </a>
+                                      <p className="news-card-description">{article.description}</p>
+                                  </div>
+                              ))}
+                          </div>
+                      ) : (
+                          <p>Loading news...</p>
+                      )}
+                  </div>
+              </div>
             </div>
           )}
         </div>

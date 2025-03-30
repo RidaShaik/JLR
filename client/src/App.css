@@ -146,13 +146,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .upload-button {
   background-color: #cccccc;
   color: #1a1a1a;
-  font-size: 10rem;
+  font-size: 3rem;
   font-weight: bold;
   padding: 20px 60px;
   border-radius: 12px;
@@ -167,3 +175,57 @@ body {
   border-color: white;
 }
 
+.news-section {
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+}
+
+.news-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.news-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 260px;
+  color: white;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: scale(1.03);
+}
+
+.news-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.news-card-title {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 10px 12px 6px 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.news-card-title:hover {
+  text-decoration: underline;
+}
+
+.news-card-description {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin: 0 12px 12px 12px;
+}
