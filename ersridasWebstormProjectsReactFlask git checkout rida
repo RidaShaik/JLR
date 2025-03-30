@@ -1,0 +1,26 @@
+[33mc4bfc9b[m[33m ([m[1;36mHEAD -> [m[1;32mRida[m[33m, [m[1;31morigin/Rida[m[33m)[m HEAD@{0}: checkout: moving from rida to Rida
+[33mc4bfc9b[m[33m ([m[1;36mHEAD -> [m[1;32mRida[m[33m, [m[1;31morigin/Rida[m[33m)[m HEAD@{1}: checkout: moving from main to rida
+[33m15a35be[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{2}: checkout: moving from Rida to main
+[33mc4bfc9b[m[33m ([m[1;36mHEAD -> [m[1;32mRida[m[33m, [m[1;31morigin/Rida[m[33m)[m HEAD@{3}: commit: Clips tab - Can see uploaded videos
+[33m15a35be[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{4}: checkout: moving from main to Rida
+[33m15a35be[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{5}: checkout: moving from Rida to main
+[33m15a35be[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{6}: reset: moving to main
+[33m110d3df[m HEAD@{7}: checkout: moving from main to Rida
+[33m15a35be[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{8}: reset: moving to main
+[33m15a35be[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m HEAD@{9}: commit: Home page UI additions - background vid - navbar placement
+[33m110d3df[m HEAD@{10}: merge Rida: Fast-forward
+[33m3ec5742[m HEAD@{11}: checkout: moving from Rida to main
+[33m110d3df[m HEAD@{12}: commit: Added pages to website, edited css, few buttons added
+[33m3ec5742[m HEAD@{13}: checkout: moving from Rida to Rida
+[33m3ec5742[m HEAD@{14}: checkout: moving from main to Rida
+[33m3ec5742[m HEAD@{15}: merge Rida: Fast-forward
+[33m8d0a563[m[33m ([m[1;31morigin/commits[m[33m, [m[1;31morigin/Joshua[m[33m)[m HEAD@{16}: checkout: moving from Rida to main
+[33m3ec5742[m HEAD@{17}: commit (merge): Merged with Ross
+[33m7dabc68[m HEAD@{18}: reset: moving to HEAD
+[33m7dabc68[m HEAD@{19}: checkout: moving from Ross to Rida
+[33m098f08a[m[33m ([m[1;31morigin/Ross[m[33m, [m[1;32mRoss[m[33m)[m HEAD@{20}: checkout: moving from Rida to Ross
+[33m7dabc68[m HEAD@{21}: commit: Video uplaod, video persists, video playback features added
+[33m01abaf5[m HEAD@{22}: pull origin Rida --rebase (finish): returning to refs/heads/Rida
+[33m01abaf5[m HEAD@{23}: pull origin Rida --rebase (pick): Initial Commot - Starting front and back end using data of team names and displaying teams names on react app
+[33m8d0a563[m[33m ([m[1;31morigin/commits[m[33m, [m[1;31morigin/Joshua[m[33m)[m HEAD@{24}: pull origin Rida --rebase (start): checkout 8d0a5637092b213a28fa8fc3e5b80000faf53d4f
+[33mf6df2fa[m HEAD@{25}: commit (initial): Initial Commot - Starting front and back end using data of team names and displaying teams names on react app

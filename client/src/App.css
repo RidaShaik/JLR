@@ -1,5 +1,5 @@
 body {
-  background-color: #1a2a4d;
+  background-color: #1a1a1a;
   margin: 0;
   font-family: Arial, sans-serif;
 }
@@ -75,4 +75,40 @@ body {
 .content {
   text-align: center;
   margin-top: 50px;
+}
+
+.clips-container {
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+}
+
+.video-card {
+  background-color: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+  width: 320px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.video-card:hover {
+  transform: scale(1.05);
+}
+
+.video-title {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.clip-video {
+  border-radius: 8px;
+  width: 100%;
 }

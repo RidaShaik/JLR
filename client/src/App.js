@@ -105,10 +105,33 @@ function App() {
               )}
 
               {currentPage === "clips" && (
-                  <div>
-                      <h2>ML Model Analysis</h2>
-                      <p>Here you will see results of the ML Model processing your video</p>
-                      <p>More details</p>
+                  <div className="clips-container">
+                      {videos.length === 0 ? (
+                          <p>No videos uploaded yet.</p>
+                      ) : (
+                          <div className="video-grid">
+                              {videos.map((video, index) => (
+                                  <div className="video-card" key={index}>
+                                      <video
+                                          width="320"
+                                          height="180"
+                                          className="clip-video"
+                                          muted
+                                          preload="metadata"
+                                          onMouseEnter={(e) => e.target.play()}
+                                          onMouseLeave={(e) => {
+                                              e.target.pause();
+                                              e.target.currentTime = 0; // resets to beginning
+                                          }}
+                                      >
+                                          <source src={`/videos/${video}`} type="video/mp4" />
+                                          Your browser does not support the video tag.
+                                      </video>
+                                      <p className="video-title">{video}</p>
+                                  </div>
+                              ))}
+                          </div>
+                      )}
                   </div>
               )}
 
