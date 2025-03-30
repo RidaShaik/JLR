@@ -11,11 +11,15 @@ function App() {
     const [selectedVideo, setSelectedVideo] = useState("");
     const [currentPage, setCurrentPage] = useState("home");
 
+    const [newsArticles, setNewsArticles] = useState([]);
+
 
     useEffect(() => {
-
         fetchVideos();
+    }, []);
 
+    useEffect(() => {
+        fetchSportsNews();
     }, []);
 
     const fetchVideos = () => {
@@ -35,6 +39,17 @@ function App() {
             setVideos([]);
         });
     };
+
+    const fetchSportsNews = async () => {
+        try {
+            const response = await fetch(`https://newsapi.org/v2/top-headlines?category=sports&language=en&pageSize=5&apiKey=acda77d8110a49ef8f1dfcfa849d0697`);
+            const data = await response.json();
+            setNewsArticles(data.articles);
+        }
+        catch (error) {
+            console.error("Error fetching SportsNews", error);
+        }
+    }
 
 
     const handleVideoUpload = async (event) => {
@@ -181,6 +196,23 @@ function App() {
                     onChange={handleVideoUpload}
                     style={{ display: "none" }}
                 />
+                <div className="news-section">
+                    <h2>Latest Sports News</h2>
+                    {newsArticles.length > 0 ? (
+                        <ul className="news-list">
+                            {newsArticles.map((article, index) => (
+                                <li key={index} className="news-item">
+                                    <a href={article.url} target="_blank" rel="noopener noreferrer" className="news-title">
+                                        {article.title}
+                                    </a>
+                                    <p className="news-description">{article.description}</p>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>Loading news...</p>
+                    )}
+                </div>
             </div>
           )}
         </div>
