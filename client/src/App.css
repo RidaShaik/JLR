@@ -229,3 +229,62 @@ body {
   color: #ccc;
   margin: 0 12px 12px 12px;
 }
+
+.footer {
+  background-color: #121212;
+  color: #ddd;
+  padding: 40px 20px;
+  font-size: 0.95rem;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.footer-section p,
+.footer-section a {
+  margin: 4px 0;
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  min-height: 100vh;
+}
+
+.footer-spacer {
+  min-height: 100vh;
+}
