@@ -82,6 +82,12 @@ function App() {
         setVideoURL(`/videos/${filename}`);
     }
 
+    const getRandomVideos = () => {
+        if (videos.length <= 5) return videos;
+        const shuffled = [...videos].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 5);
+    };
+
     return (
       <div className="app-container">
         <header classname="header">
@@ -178,9 +184,28 @@ function App() {
                     <p>model stuff goes here blah blah</p>
                   </div>
                 </div>
+
               ) : (
                 <p>No Video Selected, Please select from Clips tab</p>
               )}
+                <div className="highlight-reel">
+                    <h2>Highlight Reel</h2>
+                    <div className="highlight-grid">
+                        {getRandomVideos().map((video, index) => (
+                            <video
+                                key={index}
+                                className="highlight-video"
+                                muted
+                                loop
+                                autoPlay
+                                preload="metadata"
+                            >
+                                <source src={`/videos/${video}`} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        ))}
+                    </div>
+                </div>
             </div>
           )}
 
