@@ -104,7 +104,7 @@ const handleTimeUpdate = () => {
         <header classname="header">
           <div className="header-content">
             <img src={logo} alt="logo" className="logo" />
-            <h1>Sports Action Detection</h1>
+            <h1 className="home-header">Sports Action Detection</h1>
             <nav className="nav-bar">
               <button onClick={() => setCurrentPage('home')}>Home</button>
               <button onClick={() => setCurrentPage('clips')}>Clips</button>
@@ -130,13 +130,14 @@ const handleTimeUpdate = () => {
                 </video>
               </div>
               <div className="home-content">
-                <h2>Welcome to the Video Analysis App</h2>
+                <h2 className="home-header">Welcome to the Video Analysis App</h2>
                 <p>
                   This application allows you to upload videos and analyze them
                   using the ML model
                 </p>
-                <p>Navigate to the "Videos" tab to get started</p>
-                <p>A bunch of more information blah blah blah</p>
+                <p>Navigate to the  <button className="home-button" onClick={() => setCurrentPage('clips')}><u>Clips</u></button> tab to use the ML model on existing videos within the web application</p>
+                <p>Navigate to the  <button className="home-button" onClick={() => setCurrentPage('upload')}><u>Upload</u></button> tab to upload your own videos for analysis</p>
+                <p>Navigate to the  <button className="home-button" onClick={() => setCurrentPage('detection')}><u>Detection</u></button> to view the ML results on your specified clip</p>
               </div>
             </div>
           )}
@@ -192,7 +193,7 @@ const handleTimeUpdate = () => {
                   />
                   <div className="analysis-box">
                     <h3>TAD Analysis</h3>
-                    <p>model stuff goes here blah blah</p>
+                    <p>Results from the ML model will appear here</p>
                   </div>
                 </div>
 
@@ -262,8 +263,8 @@ const handleTimeUpdate = () => {
           <footer className="footer">
               <div className="footer-content">
                   <div className="footer-section">
-                      <h4>Cibtact</h4>
-                      <p>Email: abc@abc.abc</p>
+                      <h4>Contact</h4>
+                      <p>Email: sportsactiondetection@ufl.edu</p>
                       <p>Phone: (123)456-7890</p>
                   </div>
                   <div className="footer-section">
