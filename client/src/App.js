@@ -185,15 +185,23 @@ const handleTimeUpdate = () => {
             <div className="detection-container">
               {videoURL ? (
                 <div className="detection-content">
+                  
                   <video
                     className="detection-video"
                     src={videoURL}
                     controls
                     autoPlay
+                    onTimeUpdate={handleTimeUpdate} 
+                    ref={videoRef}
                   />
                   <div className="analysis-box">
                     <h3>TAD Analysis</h3>
                     <p>Results from the ML model will appear here</p>
+                    {currentAnnotation && (
+                  <div className="annotation-box">
+                    {currentAnnotation}
+                  </div>
+                    )}
                   </div>
                 </div>
 
