@@ -93,6 +93,12 @@ const handleTimeUpdate = () => {
         setVideoURL(`/videos/${filename}`);
     }
 
+    const getRandomVideos = () => {
+        if (videos.length <= 5) return videos;
+        const shuffled = [...videos].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 5);
+    };
+
     return (
       <div className="app-container">
         <header classname="header">
@@ -189,9 +195,28 @@ const handleTimeUpdate = () => {
                     <p>model stuff goes here blah blah</p>
                   </div>
                 </div>
+
               ) : (
                 <p>No Video Selected, Please select from Clips tab</p>
               )}
+                <div className="highlight-reel">
+                    <h2>Highlight Reel</h2>
+                    <div className="highlight-grid">
+                        {getRandomVideos().map((video, index) => (
+                            <video
+                                key={index}
+                                className="highlight-video"
+                                muted
+                                loop
+                                autoPlay
+                                preload="metadata"
+                            >
+                                <source src={`/videos/${video}`} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                        ))}
+                    </div>
+                </div>
             </div>
           )}
 
@@ -233,6 +258,28 @@ const handleTimeUpdate = () => {
             </div>
           )}
         </div>
+          <div className="footer-spacer"></div>
+          <footer className="footer">
+              <div className="footer-content">
+                  <div className="footer-section">
+                      <h4>Cibtact</h4>
+                      <p>Email: abc@abc.abc</p>
+                      <p>Phone: (123)456-7890</p>
+                  </div>
+                  <div className="footer-section">
+                      <h4>Follow Us</h4>
+                      <div className="social-icons">
+                          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+                          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+                          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+                      </div>
+                  </div>
+                  <div className="footer-section">
+                      <h4>© 2025 Sports Action AI</h4>
+                      <p>All rights reserved</p>
+                  </div>
+              </div>
+          </footer>
       </div>
     );
 }

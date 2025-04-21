@@ -245,3 +245,92 @@ body {
   color: #ccc;
   margin: 0 12px 12px 12px;
 }
+
+.footer {
+  background-color: #121212;
+  color: #ddd;
+  padding: 40px 20px;
+  font-size: 0.95rem;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.footer-section p,
+.footer-section a {
+  margin: 4px 0;
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  min-height: 100vh;
+}
+
+.footer-spacer {
+  min-height: 100vh;
+}
+
+.highlight-reel {
+  margin-top: 60px;
+  padding: 0;
+  color: white;
+  text-align: center;
+}
+
+.highlight-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.highlight-video {
+  width: 80vw;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.highlight-video:hover {
+  transform: scale(1.01);
+}
